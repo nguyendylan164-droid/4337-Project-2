@@ -15,3 +15,7 @@ Session 1 -
 6:19 PM
 
 This session, I need helper predicates before I can start "find-exit/2". Specifically, accessing a cell, finding the start, and getting the maze's dimensions. I am going to implement "cell" and "find_start".
+
+7:19 PM
+
+I created the "cell/4" and "find_start/3" predicates, which access a cell and find the start of the maze, respectively. Initially, this session was challenging until I started digging and found a built-in predicate: "nth0(index, list, element", which returns an element at the index of a list. This predicate helped simplify the session. In the next session, I will do the maze validation required by the project.
