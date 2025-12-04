@@ -19,3 +19,10 @@ This session, I need helper predicates before I can start "find-exit/2". Specifi
 7:19 PM
 
 I created the "cell/4" and "find_start/3" predicates, which access a cell and find the start of the maze, respectively. Initially, this session was challenging until I started digging and found a built-in predicate: "nth0(index, list, element", which returns an element at the index of a list. This predicate helped simplify the session. In the next session, I will do the maze validation required by the project.
+
+
+Session 2 -
+12/4/2025
+4:36 PM
+
+The project details state, "The predicate should fail if the maze is invalid..." Therefore, I plan to implement maze validation predicates for this session.
