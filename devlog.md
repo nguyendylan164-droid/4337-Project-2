@@ -8,3 +8,10 @@ I will begin the project by reviewing the provided files and determining the bes
 7:13 PM
 
 From what I understand, "example.pl" provides us with small fixed mazes and "test.pl" generates random mazes for testing. I created my "project2.pl", which will be the maze solver. For my next session, I will begin implementing helper predicates. 
+
+
+Session 1 -
+12/3/2025
+6:19 PM
+
+This session, I need helper predicates before I can start "find-exit/2". Specifically, accessing a cell, finding the start, and getting the maze's dimensions. I am going to implement "cell" and "find_start".
