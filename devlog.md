@@ -26,3 +26,7 @@ Session 2 -
 4:36 PM
 
 The project details state, "The predicate should fail if the maze is invalid..." Therefore, I plan to implement maze validation predicates for this session.
+
+6:07 PM
+
+For a maze to be valid, I had 3 criteria: It must contain valid cells, all rows must be the same length, there must be only one start, and there must be at least one end. I created the "valid_cell" rules, and the predicates: "valid_row/1", "same_row_length/1", "count_occurrences/3", "count_in_row/3", and "valid_maze/1". I had a hard time understanding the logic, but through research, I was able to implement my predicates using recursion. Next session, I plan to do movement step rules.
