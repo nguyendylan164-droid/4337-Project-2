@@ -37,3 +37,7 @@ Session 3 -
 12:03 AM
 
 Now that I can access maze cells and validate mazes, it's time for me to create movement. I think this will be a little more challenging than the previous sessions, so I might take a while to post an update. Also, because it's getting late, and I need to sleep. Based on the project, up, down, left, or right are the actions a user can take. For this session, I am going to implement "action" and "valid_move".
+
+1:33 AM 
+
+I managed to finish "action/3" and "valid_action/2", and again, Prolog logic is still tricky for me. In the next session, I plan to create predicates to execute actions.
