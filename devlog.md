@@ -29,4 +29,11 @@ The project details state, "The predicate should fail if the maze is invalid..."
 
 6:07 PM
 
-For a maze to be valid, I had 3 criteria: It must contain valid cells, all rows must be the same length, there must be only one start, and there must be at least one end. I created the "valid_cell" rules, and the predicates: "valid_row/1", "same_row_length/1", "count_occurrences/3", "count_in_row/3", and "valid_maze/1". I had a hard time understanding the logic, but through research, I was able to implement my predicates using recursion. Next session, I plan to do movement step rules.
+For a maze to be valid, I had 3 criteria: It must contain valid cells, all rows must be the same length, there must be only one start, and there must be at least one end. I created the "valid_cell" rules and the predicates: "valid_row/1", "same_row_length/1", "count_occurrences/3", "count_in_row/3", and "valid_maze/1". I had a hard time understanding the logic, but through research, I was able to implement my predicates using recursion. Next session, I plan to do movement step rules.
+
+
+Session 3 -
+12/7/2025
+12:03 AM
+
+Now that I can access maze cells and validate mazes, it's time for me to create movement. I think this will be a little more challenging than the previous sessions, so I might take a while to post an update. Also, because it's getting late, and I need to sleep. Based on the project, up, down, left, or right are the actions a user can take. For this session, I am going to implement "action" and "valid_move".
