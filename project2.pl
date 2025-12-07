@@ -19,7 +19,7 @@ same_row_length([]).
 same_row_length([_]).
 same_row_length([First, Second | Rest]) :- 
     length(First, L), % First row is length L and Second row is length L so it checks if they are the same length
-    length(Second, L),
+    length(Second, L), 
     same_row_length([Second | Rest]). % recursive call check the second row with the next row and so on
 
 % ensure that there is only one start and at least one end
@@ -46,14 +46,33 @@ valid_maze(Maze) :-
     count_occurrences(s, Maze, S), S =:= 1,
     count_occurrences(e, Maze, E), E >= 1.
 
-% Cell access --------------------------------------------------
+% Cell access ----------------------------------------------------
 % access the cell
-cell(Map, RowIndex, ColIndex, Value) :-
+cell(Maze, RowIndex, ColIndex, Value) :-
     % nth0(index, list, element) returns element at index of list
-    nth0(RowIndex, Map, Row), % get the row
+    nth0(RowIndex, Maze, Row), % get the row
     nth0(ColIndex, Row, Value). % finally get the cell from the row
 
 % find the start of the maze
-find_start(Map, RowIndex, ColIndex) :-
-    nth0(RowIndex, Map, Row),
+find_start(Maze, RowIndex, ColIndex) :-
+    nth0(RowIndex, Maze, Row),
     nth0(ColIndex, Row, s).
+
+% Movement Rules -------------------------------------------------
+action((Row,Col), up, (NewRow, Col)) :- NewRow is Row - 1. % coordinate pairs
+action((Row,Col), down, (NewRow, Col)) :- NewRow is Row + 1.
+action((Row,Col), left, (Row,NewCol)) :- NewCol is Col - 1.
+action((Row,Col), right, (Row,NewCol)) :- NewCol is Col + 1.
+
+% for a move to be valid it has to be in the maze bounds and not hit a wall
+valid_action(Maze, (Row,Col)) :-
+    % make sure it is within horizontal bounds
+    length(Maze, Rows) % built in length predicate which gets the length of the maze
+    % make sure it is within vertical bounds
+    nth0(0, Maze, R), % get a row in maze
+    length(R, Cols), % get the row cols using length
+    Col > 0, Col <= Cols,
+    cell(Maze, Row, Col, Value), % access cell to get value
+    Value \= w. % not a wall
+
+
