@@ -48,3 +48,7 @@ Session 4 -
 3:17 PM
 
 For this session, I will implement a predicate that executes a list of actions. It will use my previous predicates: "action/3", "valid_action/2", and "valid_maze/1". It seems I am nearing the end of my project.
+
+3:34 PM
+
+This was a fairly simple session, so I plan to implement the case for when "find_exit/2" has an unbound parameter for its second parameter. After some research, implementing a Depth-First Search (DFS) algorithm to find the maze exit is the best approach. However, I have a feeling it might not be easy to implement it in Prolog. 
