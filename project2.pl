@@ -75,4 +75,11 @@ valid_action(Maze, (Row,Col)) :-
     cell(Maze, Row, Col, Value), % access cell to get value
     Value \= w. % not a wall
 
+% Execute --------------------------------------------------------
+execute(Maze, StartPos, [Action|Rest], FinalPos) :-
+    action(StartPos, Action, NewPos), % do the action
+    valid_action(Maze, NewPos), % validate the action
+    execute(Maze, NewPos, Rest, FinalPos). % recurse
+
+
 
