@@ -41,3 +41,10 @@ Now that I can access maze cells and validate mazes, it's time for me to create 
 1:33 AM 
 
 I managed to finish "action/3" and "valid_action/2", and again, Prolog logic is still tricky for me. In the next session, I plan to create predicates to execute actions.
+
+
+Session 4 -
+12/7/2025
+3:17 PM
+
+For this session, I will implement a predicate that executes a list of actions. It will use my previous predicates: "action/3", "valid_action/2", and "valid_maze/1". It seems I am nearing the end of my project.
