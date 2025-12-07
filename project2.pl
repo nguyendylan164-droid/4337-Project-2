@@ -92,12 +92,12 @@ direction(down).
 direction(left).
 direction(right).
 
-search(Maze, Pos, _, []) :-
-    cell(Maze, Pos, e). % base case, reached exit
+search(Maze, (R,C), _, [], (R,C)) :-
+    cell(Maze, R, C, e). % base case, reached exit
 
-search(Maze, Pos, Visited, [Action|Rest]) :-
+search(Maze, Pos, Visited, [Action|Rest], Final) :-
     direction(Action),
     action(Pos, Action, NewPos),
     valid_action(Maze, NewPos),
     \+ member(NewPos, Visited), % make sure cell hasn't already been visited
-    search(Maze, NewPos, [NewPos|Visited], Rest).
+    search(Maze, NewPos, [NewPos|Visited], Rest, Final).
