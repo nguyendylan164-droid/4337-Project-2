@@ -18,7 +18,8 @@ same_row_length([]).
 % base case one row
 same_row_length([_]).
 same_row_length([First, Second | Rest]) :- 
-    length(First, L), % First row is length L and Second row is length L so it checks if they are the same length
+    % check if they are the same length
+    length(First, L),
     length(Second, L), 
     same_row_length([Second | Rest]). % recursive call check the second row with the next row and so on
 
@@ -61,25 +62,42 @@ find_start(Maze, RowIndex, ColIndex) :-
 % Movement Rules -------------------------------------------------
 action((Row,Col), up, (NewRow, Col)) :- NewRow is Row - 1. % coordinate pairs
 action((Row,Col), down, (NewRow, Col)) :- NewRow is Row + 1.
-action((Row,Col), left, (Row,NewCol)) :- NewCol is Col - 1.
-action((Row,Col), right, (Row,NewCol)) :- NewCol is Col + 1.
+action((Row,Col), left, (Row, NewCol)) :- NewCol is Col - 1.
+action((Row,Col), right, (Row, NewCol)) :- NewCol is Col + 1.
 
 % for a move to be valid it has to be in the maze bounds and not hit a wall
 valid_action(Maze, (Row,Col)) :-
     % make sure it is within horizontal bounds
-    length(Maze, Rows) % built in length predicate which gets the length of the maze
+    length(Maze, Rows), 
+    Row >= 0, Row < Rows,
     % make sure it is within vertical bounds
     nth0(0, Maze, R), % get a row in maze
     length(R, Cols), % get the row cols using length
-    Col > 0, Col <= Cols,
+    Col >= 0, Col < Cols,
     cell(Maze, Row, Col, Value), % access cell to get value
     Value \= w. % not a wall
 
 % Execute --------------------------------------------------------
+execute(_, Pos, [], Pos).
+
 execute(Maze, StartPos, [Action|Rest], FinalPos) :-
     action(StartPos, Action, NewPos), % do the action
     valid_action(Maze, NewPos), % validate the action
     execute(Maze, NewPos, Rest, FinalPos). % recurse
 
+% DFS for finding exit -------------------------------------------
+% fact
+direction(up).
+direction(down).
+direction(left).
+direction(right).
 
+search(Maze, Pos, _, []) :-
+    cell(Maze, Pos, e). % base case, reached exit
 
+search(Maze, Pos, Visited, [Action|Rest]) :-
+    direction(Action),
+    action(Pos, Action, NewPos),
+    valid_action(Maze, NewPos),
+    \+ member(NewPos, Visited), % make sure cell hasn't already been visited
+    search(Maze, NewPos, [NewPos|Visited], Rest).
