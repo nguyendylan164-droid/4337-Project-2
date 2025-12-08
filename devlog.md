@@ -56,3 +56,6 @@ This was a fairly simple session, so I plan to implement the case for when "find
 4:43 PM
 
 I created "search/5" and tested "execute". Upon testing "execute", I came across and fixed syntax and logic errors in my "valid_action" predicate. This session proved to be quite challenging, since I encountered numerous errors with my "search/5". After some testing, I have confirmed my predicates are all working properly. Next session might be my last, where I finally implement "find_exit/2".
+
+12:28 PM
+After reviewing my "search/5" predicate, I saw that my logic was flawed and that it didn't automatically find the path to the exit. I fixed it to "search/4" and tested it, so now it's correct.
