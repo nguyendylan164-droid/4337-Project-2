@@ -59,3 +59,9 @@ I created "search/5" and tested "execute". Upon testing "execute", I came across
 
 12:28 PM
 After reviewing my "search/5" predicate, I saw that my logic was flawed and that it didn't automatically find the path to the exit. I fixed it to "search/4" and tested it, so now it's correct.
+
+
+Session 5 -
+12/8/2025
+5:45 PM
+In this session, I will finally implement "find_exit/2," which takes a list of actions and an unbound parameter, which uses DFS to find the exit. So far, this project has been going smoothly, and it requires me to think logically. 
