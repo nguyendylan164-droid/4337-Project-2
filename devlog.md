@@ -64,4 +64,8 @@ After reviewing my "search/5" predicate, I saw that my logic was flawed and that
 Session 5 -
 12/8/2025
 5:45 PM
+
 In this session, I will finally implement "find_exit/2," which takes a list of actions and an unbound parameter, which uses DFS to find the exit. So far, this project has been going smoothly, and it requires me to think logically. 
+
+6:47 PM
+Implementing "find_exit/2" was harder than I expected, but I completed it. Some challenges I faced were getting the bound and unbound cases to work for "find_exit/2". My solution was to create separate predicates for each case, using "nonvar" and "var" to distinguish between bound and unbound parameters, respectively. I ran tests to ensure that my program is working properly. This project made me more familiar with Prolog programming logic. This might be my last session, but I might do some polishing. 
