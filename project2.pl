@@ -101,3 +101,19 @@ search(Maze, Pos, Visited, [Action|Path]) :-
     valid_action(Maze, NewPos),
     \+ member(NewPos, Visited), % make sure cell hasn't already been visited
     search(Maze, NewPos, [NewPos|Visited], Path).
+
+% find_exit/2 ----------------------------------------------------
+% case Actions provided, returns map if true
+find_exit(Maze, Actions) :-
+    nonvar(Actions), % if bound
+    valid_maze(Maze),
+    find_start(Maze, R, C),
+    execute(Maze, (R,C), Actions, (FR,FC)),
+    cell(Maze, FR, FC, e).
+
+% case Actions not provided gives path
+find_exit(Maze, Actions) :-
+    var(Actions), % if unbound
+    valid_maze(Maze),
+    find_start(Maze, R, C),
+    search(Maze, (R,C), [(R,C)], Actions).
